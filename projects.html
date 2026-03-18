@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Kaelin Kesavjee</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23080c12'/><text x='50' y='68' font-family='Georgia,serif' font-size='44' font-weight='700' fill='%23c9a84c' text-anchor='middle'>KK</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-projects">
+
+<nav>
+  <a class="nav-logo" href="index.html">Kaelin Kesavjee Portfolio</a>
+  <label for="theme-checkbox" class="theme" style="transform:scale(0.62);transform-origin:center;">
+    <span class="theme__toggle-wrap">
+      <input id="theme-checkbox" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark" onchange="toggleTheme(this)">
+      <span class="theme__fill"></span>
+      <span class="theme__icon">
+        <span class="theme__icon-part"></span><span class="theme__icon-part"></span>
+        <span class="theme__icon-part"></span><span class="theme__icon-part"></span>
+        <span class="theme__icon-part"></span><span class="theme__icon-part"></span>
+        <span class="theme__icon-part"></span><span class="theme__icon-part"></span>
+        <span class="theme__icon-part"></span>
+      </span>
+    </span>
+  </label>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="projects-page page-main">
+  <div class="projects-header">
+    <div class="projects-title-row">
+      <h2>Projects</h2>
+      <span class="projects-count" id="proj-count"></span>
+    </div>
+    <div class="search-filter-row">
+      <input class="search-box" type="text" id="proj-search" placeholder="Search by name, language..." oninput="applyFilters()">
+      <div class="filter-wrapper">
+        <button class="filter-btn" id="filter-btn" onclick="toggleFilterDropdown()">
+          Filter
+          <span class="filter-badge" id="filter-badge"></span>
+          <span class="filter-caret">&#9660;</span>
+        </button>
+        <div class="filter-dropdown" id="filter-dropdown">
+          <div class="filter-section-label">Sort by</div>
+          <div class="filter-option active" data-sort="stars" onclick="setSort(this,'stars')">&#9733; Stars</div>
+          <div class="filter-option" data-sort="date" onclick="setSort(this,'date')">&#128336; Most Recent</div>
+          <hr class="filter-divider">
+          <div class="filter-section-label">Language</div>
+          <div id="lang-filters"></div>
+          <hr class="filter-divider">
+          <div class="filter-option" style="color:rgba(255,100,100,0.75);font-size:11px" onclick="clearFilters()">&#10005; Clear filters</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects-grid" id="proj-grid">
+    <div class="proj-card"><div class="skeleton skel-title"></div><div class="skeleton skel-line"></div><div class="skeleton skel-line short"></div></div>
+    <div class="proj-card"><div class="skeleton skel-title"></div><div class="skeleton skel-line"></div><div class="skeleton skel-line short"></div></div>
+    <div class="proj-card"><div class="skeleton skel-title"></div><div class="skeleton skel-line"></div><div class="skeleton skel-line short"></div></div>
+    <div class="proj-card"><div class="skeleton skel-title"></div><div class="skeleton skel-line"></div><div class="skeleton skel-line short"></div></div>
+  </div>
+</div>
+
+<!-- PROJECT DETAIL OVERLAY -->
+<div id="proj-detail">
+  <div class="detail-nav">
+    <div class="detail-nav-left">
+      <button class="btn-back" onclick="closeDetail()">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Back
+      </button>
+      <span class="detail-repo-name" id="detail-title">-</span>
+    </div>
+    <a class="btn-github" id="detail-gh-link" href="#" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62 1 .07 1.52 1.05 1.52 1.05.89 1.56 2.33 1.11 2.9.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.13 20.63 22 16.79 22 12.26 22 6.58 17.52 2 12 2z"/></svg>
+      View on GitHub
+    </a>
+  </div>
+  <div class="detail-body">
+    <div class="detail-left">
+      <div class="detail-panel-label">Files</div>
+      <div class="file-tree" id="file-tree">
+        <div style="padding:20px 16px;color:var(--muted);font-size:12px;font-family:var(--font-mono)">Loading...</div>
+      </div>
+    </div>
+    <div class="detail-right">
+      <div class="code-pane" id="code-pane">
+        <div class="code-pane-header">
+          <span>Code</span>
+          <span class="code-filename" id="code-filename"></span>
+        </div>
+        <div class="code-scroll"><pre id="code-content"></pre></div>
+      </div>
+      <div class="readme-pane">
+        <div class="detail-panel-label">README</div>
+        <div class="readme-scroll" id="readme-content">
+          <div class="readme-empty">Loading README...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+var allRepos=[]; var activeSort='stars'; var activeLang=null;
+
+function loadRepos(){
+  var grid=document.getElementById('proj-grid');
+  ghFetch('/users/'+GH_USER+'/repos?sort=updated&per_page=100')
+    .then(function(r){return r.json();})
+    .then(function(repos){
+      if(!Array.isArray(repos)) throw 0;
+      allRepos=repos.filter(function(r){return r.name.toLowerCase()!==GH_USER.toLowerCase();});
+      buildLangFilters(); renderRepos();
+    })
+    .catch(function(){
+      grid.innerHTML='<div style="color:var(--muted);font-size:13px;padding:24px;grid-column:1/-1;font-family:var(--font-mono)">Could not load repositories.</div>';
+    });
+}
+
+function buildLangFilters(){
+  var seen={}, langs=[];
+  allRepos.forEach(function(r){if(r.language&&!seen[r.language]){seen[r.language]=1;langs.push(r.language);}});
+  langs.sort();
+  document.getElementById('lang-filters').innerHTML=langs.map(function(lang){
+    return '<div class="filter-option" data-lang="'+esc(lang)+'" onclick="setLang(this,\''+escQ(lang)+'\')"><span class="filter-dot" style="background:'+lc(lang)+'"></span>'+esc(lang)+'</div>';
+  }).join('');
+}
+
+function renderRepos(){
+  var grid=document.getElementById('proj-grid');
+  var query=document.getElementById('proj-search').value.trim().toLowerCase();
+  var list=allRepos.slice();
+  if(activeLang) list=list.filter(function(r){return r.language===activeLang;});
+  if(query){
+    var tokens=query.split(/\s+/).filter(Boolean);
+    list=list.filter(function(r){
+      var hay=(r.name+' '+(r.description||'')+' '+(r.language||'')).toLowerCase();
+      return tokens.every(function(t){return hay.indexOf(t)!==-1;});
+    });
+  }
+  list.sort(function(a,b){
+    if(activeSort==='stars'&&b.stargazers_count!==a.stargazers_count) return b.stargazers_count-a.stargazers_count;
+    return new Date(b.pushed_at)-new Date(a.pushed_at);
+  });
+  var countEl=document.getElementById('proj-count');
+  if(countEl) countEl.textContent=list.length+' / '+allRepos.length+' repos';
+  if(!list.length){grid.innerHTML='<div style="color:var(--muted);font-size:13px;padding:20px;grid-column:1/-1;font-family:var(--font-mono)">No projects match.</div>';return;}
+  var html='';
+  list.forEach(function(repo){
+    var stars=repo.stargazers_count>0?'<span class="proj-stars">&#9733; '+repo.stargazers_count+'</span>':'';
+    var n=escQ(repo.name),u=escQ(repo.html_url),b=escQ(repo.default_branch||'main');
+    html+='<div class="proj-card"><div style="display:flex;align-items:flex-start;gap:6px"><h4 style="flex:1">'+esc(repo.name)+'</h4>'+stars+'</div><p>'+esc(repo.description||'No description provided.')+'</p><div class="proj-meta">'+(repo.language?ldot(repo.language):'')+' <span class="proj-lang">'+esc(repo.language||'')+'</span></div><span class="proj-details-link" onclick="openDetail(event,\''+n+'\',\''+u+'\',\''+b+'\')">Details &#8599;</span></div>';
+  });
+  grid.innerHTML=html;
+}
+
+function toggleFilterDropdown(){
+  var dd=document.getElementById('filter-dropdown'),btn=document.getElementById('filter-btn');
+  var open=dd.classList.toggle('open'); btn.classList.toggle('open',open);
+}
+document.addEventListener('click',function(e){
+  var w=document.querySelector('.filter-wrapper');
+  if(w&&!w.contains(e.target)){document.getElementById('filter-dropdown').classList.remove('open');document.getElementById('filter-btn').classList.remove('open');}
+});
+function setSort(el,sort){activeSort=sort;document.querySelectorAll('[data-sort]').forEach(function(o){o.classList.remove('active');});el.classList.add('active');updateBadge();renderRepos();}
+function setLang(el,lang){
+  if(activeLang===lang){activeLang=null;el.classList.remove('active');}
+  else{activeLang=lang;document.querySelectorAll('[data-lang]').forEach(function(o){o.classList.remove('active');});el.classList.add('active');}
+  updateBadge();renderRepos();
+}
+function clearFilters(){
+  activeLang=null;activeSort='stars';
+  document.querySelectorAll('[data-lang],[data-sort]').forEach(function(o){o.classList.remove('active');});
+  var s=document.querySelector('[data-sort="stars"]');if(s)s.classList.add('active');
+  document.getElementById('proj-search').value='';
+  updateBadge();renderRepos();toggleFilterDropdown();
+}
+function updateBadge(){var b=document.getElementById('filter-badge');var n=(activeLang?1:0)+(activeSort!=='stars'?1:0);b.textContent=n;b.classList.toggle('on',n>0);}
+function applyFilters(){renderRepos();}
+
+var _repo='',_branch='';
+var SKIP={'.gitignore':1,'.gitattributes':1,'LICENSE':1,'license':1,'LICENSE.md':1,'license.md':1,'LICENSE.txt':1,'license.txt':1};
+var ICONS={py:'🐍',js:'🟨',ts:'🔷',html:'🌐',css:'🎨',java:'☕',cpp:'⚙️',c:'⚙️',cs:'💜',md:'📄',txt:'📝',json:'📋',xml:'📋',sh:'💻',bat:'💻',yml:'⚙️',yaml:'⚙️',sql:'🗃️',rb:'💎',go:'🐹',rs:'🦀',php:'🐘'};
+function ficon(name){var e=name.split('.').pop().toLowerCase();return ICONS[e]||'📄';}
+
+function openDetail(event,repoName,ghUrl,branch){
+  event.stopPropagation();
+  _repo=repoName;_branch=branch;
+  document.getElementById('detail-title').textContent=repoName;
+  document.getElementById('detail-gh-link').href=ghUrl;
+  document.getElementById('code-pane').classList.remove('visible');
+  document.getElementById('code-content').textContent='';
+  document.getElementById('code-filename').textContent='';
+  document.getElementById('readme-content').innerHTML='<div class="readme-empty">Loading README...</div>';
+  document.getElementById('file-tree').innerHTML='<div style="padding:20px 16px;color:var(--muted);font-size:12px;font-family:var(--font-mono)">Loading files...</div>';
+  document.getElementById('proj-detail').classList.add('open');
+  var treeP=ghFetch('/repos/'+GH_USER+'/'+repoName+'/git/trees/'+branch+'?recursive=1');
+  var readmeP=fetch('https://raw.githubusercontent.com/'+GH_USER+'/'+repoName+'/'+branch+'/README.md');
+  Promise.allSettled([treeP,readmeP]).then(function(results){
+    var treeRes=results[0].status==='fulfilled'?results[0].value:null;
+    var readmeRes=results[1].status==='fulfilled'?results[1].value:null;
+    var ft=document.getElementById('file-tree');
+    if(treeRes&&treeRes.ok){
+      treeRes.json().then(function(data){
+        var files=(data.tree||[]).filter(function(f){return f.type==='blob'&&!SKIP[f.path.split('/').pop()];}).sort(function(a,b){return a.path.localeCompare(b.path);});
+        if(!files.length){ft.innerHTML='<div style="padding:20px 16px;color:var(--muted);font-size:12px">No files found.</div>';return;}
+        ft.innerHTML=files.map(function(f){return '<div class="file-item" data-path="'+esc(f.path)+'" onclick="loadFile(this)"><span style="margin-right:6px">'+ficon(f.path)+'</span>'+esc(f.path)+'</div>';}).join('');
+      });
+    } else { ft.innerHTML='<div style="padding:20px 16px;color:var(--muted);font-size:12px">Could not load files.</div>'; }
+    var rc=document.getElementById('readme-content');
+    if(readmeRes&&readmeRes.ok){readmeRes.text().then(function(txt){rc.innerHTML=md2html(txt);});}
+    else{
+      fetch('https://raw.githubusercontent.com/'+GH_USER+'/'+repoName+'/'+branch+'/readme.md')
+        .then(function(r){return r.ok?r.text():Promise.reject();})
+        .then(function(txt){rc.innerHTML=md2html(txt);})
+        .catch(function(){rc.innerHTML='<div class="readme-empty">No README found.</div>';});
+    }
+  });
+}
+function loadFile(el){
+  document.querySelectorAll('.file-item').forEach(function(f){f.classList.remove('selected');});
+  el.classList.add('selected');
+  var path=el.dataset.path;
+  document.getElementById('code-pane').classList.add('visible');
+  document.getElementById('code-filename').textContent=path;
+  document.getElementById('code-content').textContent='Loading...';
+  fetch('https://raw.githubusercontent.com/'+GH_USER+'/'+_repo+'/'+_branch+'/'+path)
+    .then(function(r){return r.ok?r.text():Promise.reject();})
+    .then(function(txt){document.getElementById('code-content').textContent=txt;})
+    .catch(function(){document.getElementById('code-content').textContent='// Could not load file.';});
+}
+function closeDetail(){document.getElementById('proj-detail').classList.remove('open');}
+
+function md2html(md){
+  var h=md.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  h=h.replace(/```[\w]*\n?([\s\S]*?)```/g,function(_,c){return '<pre><code>'+c.replace(/^\n/,'').replace(/\n$/,'')+'</code></pre>';});
+  h=h.replace(/^### (.+)$/gm,'<h3>$1</h3>');h=h.replace(/^## (.+)$/gm,'<h2>$1</h2>');h=h.replace(/^# (.+)$/gm,'<h1>$1</h1>');
+  h=h.replace(/`([^`]+)`/g,'<code>$1</code>');
+  h=h.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');h=h.replace(/\*(.+?)\*/g,'<em>$1</em>');
+  h=h.replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1" style="max-width:100%;border-radius:6px">');
+  h=h.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  h=h.replace(/^---+$/gm,'<hr>');h=h.replace(/^&gt; (.+)$/gm,'<blockquote>$1</blockquote>');
+  h=h.replace(/((?:^[*\-] .+\n?)+)/gm,function(b){return '<ul>'+b.trim().split('\n').map(function(l){return '<li>'+l.replace(/^[*\-] /,'')+'</li>';}).join('')+'</ul>';});
+  h=h.replace(/((?:^\d+\. .+\n?)+)/gm,function(b){return '<ol>'+b.trim().split('\n').map(function(l){return '<li>'+l.replace(/^\d+\. /,'')+'</li>';}).join('')+'</ol>';});
+  h=h.split('\n').map(function(line){var t=line.trim();if(!t)return '';if(/^<(h[1-6]|ul|ol|li|pre|blockquote|hr|img)/.test(t))return t;return '<p>'+t+'</p>';}).join('\n');
+  return h;
+}
+
+loadRepos();
+</script>
+</body>
+</html>
