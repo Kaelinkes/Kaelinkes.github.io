@@ -276,20 +276,26 @@ function loadCredlyBadges() {
   if (credlyLoaded) return;
   credlyLoaded = true;
   var container = document.getElementById('badge-grid-container');
-  container.innerHTML = '<p class="cert-loading">Loading badges from Credly...</p>';
+
+  // Show static badges immediately — no waiting
+  renderStaticBadges(container);
+
+  // Silently try to fetch live badges in background and swap if successful
   var badgeUrl = 'https://www.credly.com/users/' + CREDLY_USER + '/badges.json';
   var proxies = [
     'https://api.allorigins.win/raw?url=' + encodeURIComponent(badgeUrl),
     'https://corsproxy.io/?url=' + encodeURIComponent(badgeUrl)
   ];
   function tryProxy(i) {
-    if (i >= proxies.length) { renderStaticBadges(container); return; }
-    fetch(proxies[i]).then(function(r){if(!r.ok)throw 0;return r.json();})
-      .then(function(data){
+    if (i >= proxies.length) return; // already showing static, just stop
+    fetch(proxies[i])
+      .then(function(r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function(data) {
         var badges = Array.isArray(data) ? data : (data.data || []);
         if (!badges.length) throw 0;
-        renderBadges(container, badges);
-      }).catch(function(){ tryProxy(i+1); });
+        renderBadges(container, badges); // swap in live badges
+      })
+      .catch(function() { tryProxy(i + 1); });
   }
   tryProxy(0);
 }
@@ -304,7 +310,7 @@ function renderBadges(container, badges) {
     var date = (b.issued_at_date||'').substring(0,7);
     var link = b.badge_url || ('https://www.credly.com/users/'+CREDLY_USER+'/badges');
     html += '<a class="badge-card" href="'+esc(link)+'" target="_blank" rel="noopener">'
-      + (img?'<img src="'+esc(img)+'" alt="'+name+'" loading="lazy">':'<div class="badge-img-placeholder">&#127941;</div>')
+      + (img?'<img src="'+esc(img)+'" alt="'+name+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="badge-img-placeholder" style="display:none">&#127941;</div>':'<div class="badge-img-placeholder">&#127941;</div>')
       + '<span class="badge-card-name">'+name+'</span>'
       + (issuer?'<span class="badge-card-issuer">'+issuer+'</span>':'')
       + (date?'<span class="badge-card-date">'+date+'</span>':'')
@@ -323,9 +329,13 @@ function renderStaticBadges(container) {
     {name:'Python',issuer:'SoloLearn',img:'https://images.credly.com/size/340x340/images/058c5d16-0b0f-4ade-8312-99f53a48a7d1/image.png'}
   ];
   var url = 'https://www.credly.com/users/'+CREDLY_USER+'/badges';
-  var html = '<p style="font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-bottom:12px;letter-spacing:1px">&#9432; Live badges auto-load when hosted. Previewing known badges below.</p><div class="badge-grid">';
+  var html = '<div class="badge-grid">';
   known.forEach(function(b){
-    html += '<a class="badge-card" href="'+esc(url)+'" target="_blank" rel="noopener"><img src="'+esc(b.img)+'" alt="'+esc(b.name)+'" loading="lazy"><span class="badge-card-name">'+esc(b.name)+'</span><span class="badge-card-issuer">'+esc(b.issuer)+'</span></a>';
+    html += '<a class="badge-card" href="'+esc(url)+'" target="_blank" rel="noopener">'
+      + '<img src="'+esc(b.img)+'" alt="'+esc(b.name)+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
+      + '<div class="badge-img-placeholder" style="display:none">&#127941;</div>'
+      + '<span class="badge-card-name">'+esc(b.name)+'</span>'
+      + '<span class="badge-card-issuer">'+esc(b.issuer)+'</span></a>';
   });
   html += '</div>';
   container.innerHTML = html;
