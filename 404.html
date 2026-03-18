@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 | Kaelin Kesavjee</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23080c12'/><text x='50' y='68' font-family='Georgia,serif' font-size='44' font-weight='700' fill='%23c9a84c' text-anchor='middle'>KK</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #080c12;
+    color: #f0ece4;
+    font-family: 'JetBrains Mono', monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  /* particles */
+  canvas { position: fixed; inset: 0; z-index: 0; opacity: 0.6; pointer-events: none; }
+
+  .content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+  .code {
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    font-weight: 700;
+    line-height: 1;
+    color: #c9a84c;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.1s;
+  }
+
+  .title {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(240,236,228,0.55);
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.3s;
+  }
+
+  .divider {
+    width: 40px; height: 1px;
+    background: #c9a84c; opacity: 0.4;
+    animation: fadeUp 0.5s ease forwards 0.4s;
+  }
+
+  .message {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: rgba(240,236,228,0.6);
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.5s;
+  }
+
+  .redirect-row {
+    display: flex; align-items: center; gap: 10px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.7s;
+  }
+
+  .redirect-label {
+    font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(240,236,228,0.38);
+  }
+
+  .progress-track {
+    width: 140px; height: 2px;
+    background: rgba(201,168,76,0.18);
+    border-radius: 2px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; width: 0%;
+    background: #c9a84c; border-radius: 2px;
+    transition: width 0.1s linear;
+  }
+
+  .redirect-count {
+    font-size: 10px; letter-spacing: 1px;
+    color: #c9a84c; min-width: 20px;
+  }
+
+  .gh-link {
+    font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: #c9a84c;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding-bottom: 2px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.9s;
+    transition: border-color 0.2s;
+  }
+  .gh-link:hover { border-color: #c9a84c; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(12px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<div class="content">
+  <div class="code">404</div>
+  <div class="title">Page not found</div>
+  <div class="divider"></div>
+  <div class="message">Failed to load — redirecting to GitHub</div>
+  <div class="redirect-row">
+    <span class="redirect-label">Redirecting in</span>
+    <div class="progress-track"><div class="progress-fill" id="bar"></div></div>
+    <span class="redirect-count" id="count">5</span>
+  </div>
+  <a class="gh-link" href="https://github.com/Kaelinkes" id="gh-link">Go now &rarr;</a>
+</div>
+
+<script>
+  /* Particles */
+  (function(){
+    var c = document.getElementById('c');
+    var ctx = c.getContext('2d');
+    var pts = [];
+    function resize(){ c.width = window.innerWidth; c.height = window.innerHeight; }
+    function rp(){ return { x: Math.random()*c.width, y: Math.random()*c.height, r: Math.random()*1.6+0.4, dx:(Math.random()-0.5)*0.3, dy:-(Math.random()*0.4+0.12), a:Math.random()*0.5+0.2, da:(Math.random()-0.5)*0.003 }; }
+    resize(); window.addEventListener('resize', resize);
+    for(var i=0;i<60;i++) pts.push(rp());
+    function draw(){
+      ctx.clearRect(0,0,c.width,c.height);
+      pts.forEach(function(p){
+        p.x+=p.dx; p.y+=p.dy; p.a+=p.da;
+        if(p.a<0.1) p.da=Math.abs(p.da);
+        if(p.a>0.7) p.da=-Math.abs(p.da);
+        if(p.y<-5){p.y=c.height+5;p.x=Math.random()*c.width;}
+        if(p.x<-5)p.x=c.width+5; if(p.x>c.width+5)p.x=-5;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(201,168,76,'+p.a+')'; ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  /* Countdown + redirect */
+  var total = 5000;
+  var start = Date.now();
+  var bar   = document.getElementById('bar');
+  var count = document.getElementById('count');
+  var link  = document.getElementById('gh-link');
+  var dest  = 'https://github.com/Kaelinkes';
+
+  function tick() {
+    var elapsed = Date.now() - start;
+    var pct = Math.min((elapsed / total) * 100, 100);
+    bar.style.width = pct + '%';
+    var secs = Math.ceil((total - elapsed) / 1000);
+    count.textContent = secs > 0 ? secs : '0';
+    if (elapsed >= total) { window.location.href = dest; }
+    else { requestAnimationFrame(tick); }
+  }
+  tick();
+</script>
+</body>
+</html>

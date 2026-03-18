@@ -10,6 +10,12 @@
 
 A fully responsive, multi-page portfolio showcasing my education, skills, certifications and GitHub projects. Features a dark/light theme toggle that respects the user's OS preference, live GitHub stats, animated particle backgrounds, and a working contact form that saves submissions to Google Sheets.
 
+## Why I Built This
+
+Most student portfolios are static and only showcase finished work. I wanted to build something more dynamic — a portfolio that behaves like a real application.
+
+This project was designed to demonstrate practical skills such as API integration, data handling, and building interactive user experiences without relying on frameworks. It reflects how I approach software development: focusing on performance, clarity, and real-world functionality.
+
 ---
 
 ## Pages
@@ -111,6 +117,15 @@ This portfolio was built with the help of modern tools:
 | **Claude (Anthropic)** | Advanced coding concepts, architecture decisions, and implementation |
 | **ChatGPT (OpenAI)** | Ideas, content suggestions, and brainstorming |
 | **Canva** | Design inspiration and visual reference |
+
+---
+
+## Challenges & Learnings
+
+- Handling and aggregating data from the GitHub API (including commit statistics)
+- Dynamically fetching and rendering README files within the browser
+- Managing application state and interactivity without using frameworks
+- Ensuring responsiveness and performance across devices
 
 ---
 

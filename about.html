@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Kaelin Kesavjee</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23080c12'/><text x='50' y='68' font-family='Georgia,serif' font-size='44' font-weight='700' fill='%23c9a84c' text-anchor='middle'>KK</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-about">
+
+<nav>
+  <a class="nav-logo" href="index.html">Kaelin Kesavjee Portfolio</a>
+  <label for="theme-checkbox" class="theme" style="transform:scale(0.62);transform-origin:center;">
+    <span class="theme__toggle-wrap">
+      <input id="theme-checkbox" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark" onchange="toggleTheme(this)">
+      <span class="theme__fill"></span>
+      <span class="theme__icon">
+        <span class="theme__icon-part"></span><span class="theme__icon-part"></span>
+        <span class="theme__icon-part"></span><span class="theme__icon-part"></span>
+        <span class="theme__icon-part"></span><span class="theme__icon-part"></span>
+        <span class="theme__icon-part"></span><span class="theme__icon-part"></span>
+        <span class="theme__icon-part"></span>
+      </span>
+    </span>
+  </label>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="about-scroll-bar" id="about-scroll-bar"></div>
+
+<div class="about-page page-main">
+
+  <div class="about-header">
+    <div class="about-title-row">
+      <h1 class="about-heading">About <span>me.</span></h1>
+      <div class="about-actions">
+        <a class="btn-primary" href="assets/Kaelin_Kesavjee_CV.pdf" download="Kaelin_Kesavjee_CV.pdf">Resume &#8599;</a>
+        <a class="btn-outline" href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="about-tab-bar">
+      <div class="about-tab active" onclick="switchAbout(this,'bio')">Biography</div>
+      <div class="about-tab" onclick="switchAbout(this,'tech')">Tech Stack</div>
+      <div class="about-tab" onclick="switchAbout(this,'skills')">Skills</div>
+      <div class="about-tab" onclick="switchAbout(this,'edu')">Education</div>
+      <div class="about-tab" onclick="switchAbout(this,'certs')">Certifications</div>
+      <div class="about-tab" onclick="switchAbout(this,'interests')">Interests</div>
+    </div>
+  </div>
+
+  <div class="about-content">
+
+    <!-- BIO -->
+    <div class="about-section active" id="about-bio">
+      <div class="section-eyebrow">Biography</div>
+      <p class="bio-text">Hi, I'm Kaelin — an Information Technology student and aspiring Software Engineer with a passion for building software and understanding how technology works behind the scenes.</p>
+      <p class="bio-text">I enjoy solving complex problems, experimenting with new technologies, and creating applications that turn ideas into functional systems. My focus is on software development, backend systems, and cloud technologies, where I enjoy designing efficient and scalable solutions.</p>
+      <p class="bio-text">Currently pursuing a Bachelor of Science in Information Technology at Richfield Graduate Institute of Technology (2024–2026), where I'm developing strong foundations in programming, web development, databases, networking, and cloud computing.</p>
+      <p class="bio-text">Beyond academics, I constantly explore new technologies, improve my programming skills, and expand my knowledge through certifications and personal learning.</p>
+      <p class="bio-text">My long-term goal is to become a professional software engineer and contribute to building impactful software systems while continuously growing in the field of technology.</p>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="about-section" id="about-tech">
+      <div class="section-eyebrow">Tech Stack</div>
+      <div class="tech-grid">
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><span>Java</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"><span>C++</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"><span>C#</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"><span>PHP</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"><span>HTML</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"><span>CSS</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"><span>SQL</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS"><span>AWS</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/delphi/delphi-original.svg" alt="Delphi"><span>Delphi</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="filter:invert(0.7)"><span>GitHub</span></div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="about-section" id="about-skills">
+      <div class="section-eyebrow">Skills</div>
+      <div class="skills-grid">
+        <div class="skill-block">
+          <div class="skill-block-label">Programming</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Python</span><span class="skill-pill">C++</span>
+            <span class="skill-pill">JavaScript</span><span class="skill-pill">SQL</span>
+            <span class="skill-pill">Delphi</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-label">Web Development</div>
+          <div class="skill-pills">
+            <span class="skill-pill">HTML</span><span class="skill-pill">CSS</span>
+            <span class="skill-pill">JavaScript</span><span class="skill-pill">PHP</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-label">Technical Knowledge</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Cloud Computing</span><span class="skill-pill">Database Systems</span>
+            <span class="skill-pill">Networking</span><span class="skill-pill">Software Development</span>
+            <span class="skill-pill">Data Science</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-label">Professional Skills</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Problem Solving</span><span class="skill-pill">Adaptability</span>
+            <span class="skill-pill">Teamwork</span><span class="skill-pill">Analytical Thinking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="about-section" id="about-edu">
+      <div class="section-eyebrow">Education</div>
+      <div class="edu-block">
+        <div class="edu-header">
+          <div class="edu-degree">BSc Information Technology</div>
+          <div class="edu-years">2024 – 2026</div>
+        </div>
+        <div class="edu-institution">Richfield Graduate Institute of Technology</div>
+        <div class="edu-coursework-toggle" onclick="toggleCoursework(this)">
+          <span class="edu-coursework-label">Coursework Details</span>
+        </div>
+        <div class="edu-coursework-detail" id="edu-coursework-detail" style="display:none">
+          <div class="edu-year-block">
+            <div class="edu-year-header"><span class="edu-year-badge">Year 1</span><span class="edu-year-title">Foundations &mdash; Overall: 74.82%</span></div>
+            <div class="edu-year-modules">
+              <div class="edu-module"><span class="edu-module-name">Mathematics (511–512)</span><span class="edu-module-detail">Discrete mathematics, algebra, and quantitative reasoning across both semesters</span></div>
+              <div class="edu-module"><span class="edu-module-name">Information Systems (511–512)</span><span class="edu-module-detail">Foundations of information systems, business processes, and IT infrastructure</span></div>
+              <div class="edu-module"><span class="edu-module-name">Computer Networks (511–512)</span><span class="edu-module-detail">Networking principles, protocols, OSI model, and network architecture</span></div>
+              <div class="edu-module"><span class="edu-module-name">Web Development</span><span class="edu-module-detail">HTML, CSS, and JavaScript — building and styling interactive web pages</span></div>
+              <div class="edu-module"><span class="edu-module-name">Data Science (500)</span><span class="edu-module-detail">Introduction to data analysis, visualisation, and data-driven thinking</span></div>
+              <div class="edu-module edu-module--distinction"><span class="edu-module-name">Programming in Python (511–512) &#127941;</span><span class="edu-module-detail">Python fundamentals through to advanced concepts — Distinction achieved both semesters</span></div>
+            </div>
+          </div>
+          <div class="edu-year-block">
+            <div class="edu-year-header"><span class="edu-year-badge">Year 2</span><span class="edu-year-title">Core Development &mdash; Overall: 76.20%</span></div>
+            <div class="edu-year-modules">
+              <div class="edu-module"><span class="edu-module-name">Cloud Computing (600)</span><span class="edu-module-detail">AWS services, cloud architecture, deployment, and scalability</span></div>
+              <div class="edu-module"><span class="edu-module-name">Database Systems (600)</span><span class="edu-module-detail">Advanced SQL, database design, normalisation, and administration</span></div>
+              <div class="edu-module"><span class="edu-module-name">Information Systems Analysis &amp; Design (621–622)</span><span class="edu-module-detail">Systems analysis, requirements gathering, UML, and SDLC methodologies</span></div>
+              <div class="edu-module"><span class="edu-module-name">Programming in C++ — Data Structures &amp; Algorithms</span><span class="edu-module-detail">Data structures, algorithms, memory management, and advanced C++</span></div>
+              <div class="edu-module"><span class="edu-module-name">Machine Learning (600)</span><span class="edu-module-detail">Supervised and unsupervised learning, model training, and evaluation</span></div>
+              <div class="edu-module"><span class="edu-module-name">Big Data &amp; Internet of Things (600)</span><span class="edu-module-detail">IoT ecosystems, big data processing, and connected systems</span></div>
+              <div class="edu-module edu-module--elective"><span class="edu-module-name">Elective: Internet Programming in PHP &#9733;</span><span class="edu-module-detail">Programming elective — exclusive to students who chose the programming track. Server-side development, dynamic web apps, and database-driven applications</span></div>
+            </div>
+          </div>
+          <div class="edu-year-block">
+            <div class="edu-year-header"><span class="edu-year-badge">Year 3</span><span class="edu-year-title">Specialisation &amp; Capstone</span></div>
+            <div class="edu-year-modules">
+              <div class="edu-module"><span class="edu-module-name">Advanced Programming in Java (731–732)</span><span class="edu-module-detail">Enterprise Java, design patterns, multi-threading, and advanced OOP</span></div>
+              <div class="edu-module"><span class="edu-module-name">Software Engineering (700)</span><span class="edu-module-detail">Agile, Scrum, software architecture, testing, and quality assurance</span></div>
+              <div class="edu-module"><span class="edu-module-name">Artificial Intelligence (700)</span><span class="edu-module-detail">AI concepts, search algorithms, neural networks, and applied AI</span></div>
+              <div class="edu-module"><span class="edu-module-name">Cybersecurity (700)</span><span class="edu-module-detail">Security principles, threat modelling, ethical hacking, and cryptography</span></div>
+              <div class="edu-module"><span class="edu-module-name">Operating Systems (700)</span><span class="edu-module-detail">Process management, memory, file systems, and OS architecture</span></div>
+              <div class="edu-module"><span class="edu-module-name">Human-Computer Interaction (700)</span><span class="edu-module-detail">UX design principles, usability, accessibility, and interface design</span></div>
+              <div class="edu-module"><span class="edu-module-name">IT Project Management (700)</span><span class="edu-module-detail">Project planning, risk management, Agile and traditional PM frameworks</span></div>
+              <div class="edu-module"><span class="edu-module-name">Mobile Application Development (700)</span><span class="edu-module-detail">Building cross-platform and native mobile applications</span></div>
+              <div class="edu-module"><span class="edu-module-name">Work Integrated Learning (700)</span><span class="edu-module-detail">Industry placement and practical application of IT skills in a real workplace</span></div>
+              <div class="edu-module edu-module--elective"><span class="edu-module-name">Elective: Advanced Programming in C# (741–742) &#9733;</span><span class="edu-module-detail">Programming elective — exclusive to students who chose the programming track. .NET framework, C# advanced features, and application development</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HIGH SCHOOL -->
+      <div class="edu-block" style="margin-top:14px">
+        <div class="edu-header">
+          <div class="edu-degree">National Senior Certificate (Matric)</div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div class="edu-years">2019 – 2023</div>
+            <span style="font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:1px">Completed</span>
+          </div>
+        </div>
+        <div class="edu-institution">Northcliff High School, Johannesburg</div>
+        <div class="edu-coursework-toggle" onclick="toggleCoursework2(this)">
+          <span class="edu-coursework-label">Coursework Details</span>
+        </div>
+        <div class="edu-coursework-detail" id="edu-coursework-detail-hs" style="display:none">
+          <div class="edu-year-block">
+            <div class="edu-year-header"><span class="edu-year-badge">2019 – 2023</span><span class="edu-year-title">NSC Subjects</span></div>
+            <div class="edu-year-modules">
+              <div class="edu-module"><span class="edu-module-name">English Home Language (HL)</span><span class="edu-module-detail">Advanced reading, writing, literature analysis, and oral communication — studied at first-language level as per the CAPS curriculum at Northcliff High</span></div>
+              <div class="edu-module"><span class="edu-module-name">Mathematics (Core)</span><span class="edu-module-detail">Full Mathematics — algebra, calculus, geometry, trigonometry, and statistics. Northcliff is known for strong Maths results and consistently ranks among top Wits/UJ feeder schools</span></div>
+              <div class="edu-module"><span class="edu-module-name">Afrikaans First Additional Language</span><span class="edu-module-detail">Reading, writing, and oral communication in Afrikaans as a second language — compulsory language subject alongside English HL</span></div>
+              <div class="edu-module"><span class="edu-module-name">Life Orientation</span><span class="edu-module-detail">Personal development, career guidance, physical wellness, social responsibility, and study skills — compulsory across all South African high schools</span></div>
+              <div class="edu-module"><span class="edu-module-name">Physical Sciences</span><span class="edu-module-detail">Physics and Chemistry — mechanics, waves, electricity, chemical bonding, reactions, and quantitative chemistry. Northcliff achieved strong Physical Science results with 18 distinctions in recent matric exams</span></div>
+              <div class="edu-module"><span class="edu-module-name">Life Sciences (Biology)</span><span class="edu-module-detail">Cells, genetics, evolution, human biology, ecology, and biodiversity — aligned with the CAPS Life Sciences curriculum offered at Northcliff High</span></div>
+              <div class="edu-module edu-module--distinction"><span class="edu-module-name">Information Technology (IT) &#127941;</span><span class="edu-module-detail">Programming (Delphi), databases, networks, system software, and problem-solving</span></div>
+              <div class="edu-module"><span class="edu-module-name">Tamil</span><span class="edu-module-detail">Tamil language — reading, writing, oral skills, and cultural literature. Offered as an additional language subject supporting South Africa's multilingual NSC framework</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="about-section" id="about-certs">
+      <div class="section-eyebrow">Certifications</div>
+      <div id="badge-grid-container">
+        <p class="cert-loading">Loading badges from Credly...</p>
+      </div>
+    </div>
+
+    <!-- INTERESTS -->
+    <div class="about-section" id="about-interests">
+      <div class="section-eyebrow">Interests</div>
+      <p class="bio-text" style="margin-bottom:16px">When I'm not coding, you'll find me:</p>
+      <div class="interests-grid">
+        <div class="interest-item"><span class="interest-icon">&#128187;</span><span class="interest-label">Exploring new tech</span></div>
+        <div class="interest-item"><span class="interest-icon">&#9881;</span><span class="interest-label">Computer systems</span></div>
+        <div class="interest-item"><span class="interest-icon">&#127918;</span><span class="interest-label">Gaming</span></div>
+        <div class="interest-item"><span class="interest-icon">&#129504;</span><span class="interest-label">Solving puzzles</span></div>
+        <div class="interest-item"><span class="interest-icon">&#129695;</span><span class="interest-label">Building LEGO</span></div>
+        <div class="interest-item"><span class="interest-icon">&#128296;</span><span class="interest-label">PC hardware</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+/* ── ABOUT TAB SWITCHER ── */
+function switchAbout(el, id) {
+  document.querySelectorAll('.about-tab').forEach(function(n){n.classList.remove('active');});
+  document.querySelectorAll('.about-section').forEach(function(s){s.classList.remove('active');});
+  el.classList.add('active');
+  document.getElementById('about-' + id).classList.add('active');
+  if (id === 'certs') loadCredlyBadges();
+}
+
+/* ── COURSEWORK TOGGLES ── */
+function toggleCoursework(el) {
+  var d = document.getElementById('edu-coursework-detail');
+  var open = d.style.display !== 'none';
+  d.style.display = open ? 'none' : 'flex';
+  el.classList.toggle('open', !open);
+}
+function toggleCoursework2(el) {
+  var d = document.getElementById('edu-coursework-detail-hs');
+  var open = d.style.display !== 'none';
+  d.style.display = open ? 'none' : 'flex';
+  el.classList.toggle('open', !open);
+}
+
+/* ── SCROLL PROGRESS ── */
+(function(){
+  var content = document.querySelector('.about-content');
+  var bar = document.getElementById('about-scroll-bar');
+  if (!content || !bar) return;
+  content.addEventListener('scroll', function() {
+    var max = content.scrollHeight - content.clientHeight;
+    bar.style.width = (max > 0 ? (content.scrollTop / max) * 100 : 0) + '%';
+  });
+})();
+
+/* ── CREDLY BADGES ── */
+var CREDLY_USER = 'kaelin-kesavjee';
+var credlyLoaded = false;
+function loadCredlyBadges() {
+  if (credlyLoaded) return;
+  credlyLoaded = true;
+  var container = document.getElementById('badge-grid-container');
+  container.innerHTML = '<p class="cert-loading">Loading badges from Credly...</p>';
+  var badgeUrl = 'https://www.credly.com/users/' + CREDLY_USER + '/badges.json';
+  var proxies = [
+    'https://api.allorigins.win/raw?url=' + encodeURIComponent(badgeUrl),
+    'https://corsproxy.io/?url=' + encodeURIComponent(badgeUrl)
+  ];
+  function tryProxy(i) {
+    if (i >= proxies.length) { renderStaticBadges(container); return; }
+    fetch(proxies[i]).then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(data){
+        var badges = Array.isArray(data) ? data : (data.data || []);
+        if (!badges.length) throw 0;
+        renderBadges(container, badges);
+      }).catch(function(){ tryProxy(i+1); });
+  }
+  tryProxy(0);
+}
+function renderBadges(container, badges) {
+  var html = '<div class="badge-grid">';
+  badges.forEach(function(b) {
+    var tmpl = b.badge_template || {};
+    var name = esc(tmpl.name || b.name || 'Badge');
+    var img  = tmpl.image_url || '';
+    var issuer = '';
+    try { issuer = esc(b.issuer.entities[0].entity.name); } catch(e) { issuer = esc(tmpl.issuer_name||''); }
+    var date = (b.issued_at_date||'').substring(0,7);
+    var link = b.badge_url || ('https://www.credly.com/users/'+CREDLY_USER+'/badges');
+    html += '<a class="badge-card" href="'+esc(link)+'" target="_blank" rel="noopener">'
+      + (img?'<img src="'+esc(img)+'" alt="'+name+'" loading="lazy">':'<div class="badge-img-placeholder">&#127941;</div>')
+      + '<span class="badge-card-name">'+name+'</span>'
+      + (issuer?'<span class="badge-card-issuer">'+issuer+'</span>':'')
+      + (date?'<span class="badge-card-date">'+date+'</span>':'')
+      + '</a>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+function renderStaticBadges(container) {
+  var known = [
+    {name:'AWS Cloud Foundations',issuer:'Amazon Web Services',img:'https://images.credly.com/size/340x340/images/73e4a58b-a8ef-41a3-a7db-9183dd269882/image.png'},
+    {name:'AWS Cloud Web Application Builder',issuer:'Amazon Web Services',img:'https://images.credly.com/size/340x340/images/19a6d51b-4278-4a06-9ebb-c2539fdc9de7/image.png'},
+    {name:'Cisco Cybersecurity',issuer:'Cisco Networking Academy',img:'https://images.credly.com/size/340x340/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png'},
+    {name:'JavaScript Essentials 1',issuer:'Cisco Networking Academy',img:'https://images.credly.com/size/340x340/images/6307e1c2-6e22-4df2-baed-e81b64f0a6b7/image.png'},
+    {name:'Python Essentials 1',issuer:'OpenEDG Python Institute',img:'https://images.credly.com/size/340x340/images/068c4a56-3b24-4f5b-9f1f-52bc5de63f78/image.png'},
+    {name:'Python',issuer:'SoloLearn',img:'https://images.credly.com/size/340x340/images/058c5d16-0b0f-4ade-8312-99f53a48a7d1/image.png'}
+  ];
+  var url = 'https://www.credly.com/users/'+CREDLY_USER+'/badges';
+  var html = '<p style="font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-bottom:12px;letter-spacing:1px">&#9432; Live badges auto-load when hosted. Previewing known badges below.</p><div class="badge-grid">';
+  known.forEach(function(b){
+    html += '<a class="badge-card" href="'+esc(url)+'" target="_blank" rel="noopener"><img src="'+esc(b.img)+'" alt="'+esc(b.name)+'" loading="lazy"><span class="badge-card-name">'+esc(b.name)+'</span><span class="badge-card-issuer">'+esc(b.issuer)+'</span></a>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+</script>
+</body>
+</html>
