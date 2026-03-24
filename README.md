@@ -135,4 +135,4 @@ This project is open source. Feel free to use it as a reference or template — 
 
 ---
 
-*Built by Kaelin Kesavjee — 2025*
+*Built by Kaelin Kesavjee — 2026*
