@@ -855,3 +855,68 @@ body.light #proj-detail { background: var(--bg); }
 @media (max-width: 600px) {
   .nav-hamburger { display: flex; }
 }
+
+/* ── MOBILE NAV FIXES ── */
+@media (max-width: 600px) {
+  nav {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+  }
+  .nav-logo {
+    font-size: 9px !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+  /* Hide nav links by default on mobile */
+  .nav-links {
+    display: none !important;
+    position: fixed;
+    top: var(--nav-h); left: 0; right: 0;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column !important;
+    padding: 8px 0;
+    z-index: 999;
+  }
+  .nav-links.open {
+    display: flex !important;
+  }
+  /* Right side of nav: theme toggle + hamburger */
+  .nav-right {
+    display: flex; align-items: center; gap: 4px;
+  }
+  /* Stats — always 2x2 on mobile */
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius-lg);
+  }
+  .hero-stat-divider { display: none !important; }
+  .hero-stat {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: var(--radius-lg);
+    padding: 10px 8px;
+  }
+}
+
+/* nav-right wrapper — desktop keeps toggle centred, mobile groups toggle+hamburger */
+.nav-right {
+  display: flex; align-items: center; gap: 4px;
+}
+/* On desktop, nav is still grid with nav-right in the centre slot */
+@media (min-width: 601px) {
+  nav { display: grid; grid-template-columns: 1fr auto 1fr; }
+  .nav-right { justify-self: center; }
+  .nav-hamburger { display: none !important; }
+  .nav-links { display: flex !important; position: static !important; background: none !important; border: none !important; flex-direction: row !important; padding: 0 !important; }
+}
