@@ -83,3 +83,35 @@ function initParticles(canvasIds) {
 var LC={Python:'#3572A5',JavaScript:'#f1e05a',HTML:'#e34c26',CSS:'#563d7c',Java:'#b07219','C++':'#f34b7d','C#':'#178600',TypeScript:'#2b7489',Shell:'#89e051',Ruby:'#701516',Go:'#00ADD8',Rust:'#dea584',Swift:'#ffac45',Kotlin:'#F18E33',PHP:'#4F5D95',Delphi:'#EE1F35'};
 function lc(l){ return LC[l]||'#666'; }
 function ldot(l){ return '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+lc(l)+';margin-right:5px;flex-shrink:0"></span>'; }
+
+/* ── MOBILE NAV TOGGLE ── */
+function toggleNav() {
+  var links = document.getElementById('nav-links');
+  var btn   = document.getElementById('nav-hamburger');
+  if (!links || !btn) return;
+  var open = links.classList.toggle('open');
+  btn.classList.toggle('open', open);
+}
+// Close nav when a link is clicked
+document.addEventListener('DOMContentLoaded', function() {
+  var links = document.getElementById('nav-links');
+  if (links) {
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        links.classList.remove('open');
+        var btn = document.getElementById('nav-hamburger');
+        if (btn) btn.classList.remove('open');
+      });
+    });
+  }
+  // Close nav when clicking outside
+  document.addEventListener('click', function(e) {
+    var nav = document.querySelector('nav');
+    if (nav && !nav.contains(e.target)) {
+      var links = document.getElementById('nav-links');
+      var btn   = document.getElementById('nav-hamburger');
+      if (links) links.classList.remove('open');
+      if (btn)   btn.classList.remove('open');
+    }
+  });
+});
